@@ -4,6 +4,7 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
+
 @Controller('user')
 export class UserController {
   constructor(
@@ -16,7 +17,7 @@ export class UserController {
   }
 
   @Get('/getAll')
-  findAll(@Req() request: Request, @Res() response: Response) {
+  findAll(@Req() request: Request) {
     return this.userService.findAll();
   }
 

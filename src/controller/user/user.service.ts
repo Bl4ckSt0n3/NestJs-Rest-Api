@@ -1,15 +1,24 @@
 import { Injectable } from '@nestjs/common';
+import { Observable, of } from 'rxjs';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UserService {
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+  create(createUserDto: CreateUserDto): object {
+    var newUser = {
+      data: {
+        username: createUserDto.username,
+        email: createUserDto.email
+      },
+      message: "success!"
+    }
+    // add database process
+    return newUser;
   }
 
-  findAll() {
-    return `This action returns all user`;
+  findAll(): Observable<any[]> {
+    return of([]);
   }
 
   findOne(id: number) {
